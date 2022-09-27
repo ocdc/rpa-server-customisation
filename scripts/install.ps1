@@ -22,15 +22,3 @@ scoop install winscp
 # ocdc
 scoop bucket add ocdc https://github.com/ocdc/scoop-bucket
 scoop install githubdesktop
-scoop install qsel
-
-# Non-Scoop actions
-Write-Host "Items below will need to be manually downloaded and installed." -BackgroundColor Blue
-Write-Host "Jump Desktop Connect url: https://jumpdesktop.com/connect/"
-Write-Host "UI.Vision modules url: https://ui.vision/rpa/x/download"
-Write-Host "UI.Vision Chrome extension url: https://chrome.google.com/webstore/detail/uivision-rpa/gcbalfbdmfieckjlnblleoemohcganoc"
-
-# Todo > Get Qsel configuration
-# Todo > Get UI.Vision backup script
-# Todo > Get UI.Vision scripts
-# Todo > Set up folders

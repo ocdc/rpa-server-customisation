@@ -3,9 +3,9 @@ function Show-Menu {
     Write-Host "=========== System Customisation Options ==========="
     
     Write-Host "1: Install."
-    Write-Host "2: Open Jump Desktop Connect."
-    Write-Host "3: Open UI.Vision modules."
-    Write-Host "4: UI.Vision Chrome extension."
+    Write-Host "2: Create desktop shortcuts."
+    Write-Host "3: Manual installers."
+    Write-Host "4: Manual setup tasks."
     Write-Host "Q: Press 'Q' to quit."
 }
 
@@ -18,11 +18,15 @@ do
         '1' {
             &"$($PSScriptRoot)\scripts\install.ps1"
         } '2' {
-            [system.Diagnostics.Process]::Start("chrome","https://jumpdesktop.com/connect/")
+            &"$($PSScriptRoot)\scripts\copy-shortcuts.ps1"
         } '3' {
-            [system.Diagnostics.Process]::Start("chrome","https://ui.vision/rpa/x/download")
+            Write-Host "Items below will need to be manually downloaded and installed." -BackgroundColor Blue
+            Write-Host "Jump Desktop Connect url: https://jumpdesktop.com/connect/"
+            Write-Host "UI.Vision modules url: https://ui.vision/rpa/x/download"
+            Write-Host "UI.Vision Chrome extension url: https://chrome.google.com/webstore/detail/uivision-rpa/gcbalfbdmfieckjlnblleoemohcganoc"
         } '4' {
-            [system.Diagnostics.Process]::Start("chrome","https://chrome.google.com/webstore/detail/uivision-rpa/gcbalfbdmfieckjlnblleoemohcganoc")
+            Write-Host "Default GIT path should be C:\Users\$($Env:USERPROFILE)\GitHub"
+            Write-Host "Default UI.Vision path should be C:\Users\$($Env:USERPROFILE)\GitHub\uivision"
         }
     }
     pause
