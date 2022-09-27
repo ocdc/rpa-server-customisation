@@ -1,11 +1,27 @@
-# Install Scoop
-Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+$currentUser = $Env:USERNAME
 
-iwr -useb get.scoop.sh | iex
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+Write-Host "Logged in user: $($currentUser)" -BackgroundColor Blue
+
+# Install Scoop
+If ($currentUser -eq "Administrator")
+{
+    Write-Host "Logged on as administrator, -RunAsAdmin parameter will be used..." -BackgroundColor Red
+    Read-Host -Prompt "Press enter to continue or CTRL+C to quit"
+
+    iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
+} else {
+    Write-Host "Logged on as standard user, normal install will be performed..." -BackgroundColor DarkGreen
+    Read-Host -Prompt "Press enter to continue or CTRL+C to quit"
+
+    iwr -useb get.scoop.sh | iex
+}
+
+# Install software
+# Git and config
 scoop install git
 git config --global init.defaultBranch master
 
-# Install software
 # Main
 scoop install 7zip
 
