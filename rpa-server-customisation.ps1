@@ -6,6 +6,7 @@ function Show-Menu {
     Write-Host "2: Create desktop shortcuts."
     Write-Host "3: Manual installers."
     Write-Host "4: Manual setup tasks."
+	Write-Host "5: Update manifests."
     Write-Host "Q: Press 'Q' to quit."
 }
 
@@ -27,7 +28,9 @@ do
         } '4' {
             Write-Host "Default GIT path should be C:\Users\$($Env:USERPROFILE)\GitHub"
             Write-Host "Default UI.Vision path should be C:\Users\$($Env:USERPROFILE)\GitHub\uivision"
-        }
+        } '5' {
+			&"$($PSScriptRoot)\scripts\scoop-update-manifests.ps1"
+		}
     }
     pause
  }
