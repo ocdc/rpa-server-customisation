@@ -28,11 +28,11 @@ scoop install 7zip
 # Extras
 scoop bucket add extras
 scoop install filezilla
-scoop install googlechrome
 scoop install notepadplusplus
 scoop install paint.net
 scoop install putty
 scoop install sumatrapdf
+scoop install vscode
 scoop install winscp
 
 # ocdc
